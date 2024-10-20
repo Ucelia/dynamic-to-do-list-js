@@ -6,23 +6,22 @@ document.addEventListener ('DOMContentLoaded', function (){
     function addTask (){
         const taskText = taskInput.value.trim();
         if (taskText.isEmpty){
-            let tasks = prompt('Enter a task:');
-            alert (tasks);
+            alert ('Enter a task:');
             return;
         }
         else {
-            //const taskLists = document.createElement('li');
-            const taskLists = classList.add('li');
+            const taskLists = document.createElement('li');
             taskLists.textContent = taskText;
+            taskLists.classList.add('task-item');
             const removeBtn = document.createElement('button');
             removeBtn.textContent = 'Remove';
             removeBtn.className = 'remove-btn';
             removeBtn.addEventListener('click', function(){
                 taskLists.remove();
+            });
                 taskLists.appendChild(removeBtn);
                 taskList.appendChild(taskLists);
                 taskInput.value='';
-            });
         }
     }
     addButton.addEventListener('click', addTask);
